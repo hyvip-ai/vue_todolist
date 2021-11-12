@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+   
+    <div id="app">
+        <div class="card" v-for="item in todos">
+            <div class="name">
+                {{item.name}}
+            </div>
+            <div class="description">
+                {{item.text}}
+            </div>
+            <div class="completed">
+                {{item.completed}}
+            </div>
+            <div class="toogletask">
+                <button v-on:click="toogletask(item.id)">
+                    <span v-if="!item.completed">task completed</span><span v-if="item.completed">Task Not Completed</span>
+                </button>
+            </div>
+        </div>
+        <div class="add">
+            <input type="text" v-model="name">
+        <textarea name="" v-model="text" id="" cols="5" rows="5"></textarea>
+        <button v-on:click="addtodo()">Add Todo</button>
+        </div>
+    </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
